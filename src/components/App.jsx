@@ -21,13 +21,18 @@ export default class App extends Component {
       id: nanoid(),
     };
 
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, newContact],
-    }));
+    if (
+      this.state.contacts.filter(contact => contact.name === data.name).length
+    ) {
+      alert(data.name + ' is already in contacts!');
+    } else {
+      this.setState(prevState => ({
+        contacts: [...prevState.contacts, newContact],
+      }));
+    }
   };
 
   setFilterValue = data => {
-    console.log(data);
     this.setState({ filter: data });
   };
 

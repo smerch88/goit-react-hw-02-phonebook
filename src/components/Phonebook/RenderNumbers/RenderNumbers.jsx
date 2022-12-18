@@ -2,17 +2,20 @@ import { Component } from 'react';
 
 export class RenderNumbers extends Component {
   render() {
-    const { contacts } = this.props;
-    console.log(contacts);
+    const { contacts, filter } = this.props;
     return (
       <>
         <ul>
-          {contacts.map(contact => (
-            <li key={contact.id}>
-              {' '}
-              {contact.name}: {contact.number}
-            </li>
-          ))}
+          {contacts
+            .filter(contact =>
+              contact.name.toLowerCase().includes(filter.toLowerCase())
+            )
+            .map(contact => (
+              <li key={contact.id}>
+                {' '}
+                {contact.name}: {contact.number}
+              </li>
+            ))}
         </ul>
       </>
     );

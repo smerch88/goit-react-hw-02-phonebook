@@ -5,6 +5,7 @@ export class Phonebook extends Component {
   state = {
     name: '',
     number: '',
+    filter: '',
   };
 
   nameInputID = nanoid();

@@ -1,6 +1,7 @@
 import { Component } from 'react';
-import { Phonebook } from './Phonebook/Phonebook';
-import { RenderNumbers } from './Phonebook/RenderNumbers/RenderNumbers';
+import { ContactForm } from './Phonebook/ContactForm';
+import { ContactList } from './Phonebook/ContactList/ContactList';
+import { Filter } from './Phonebook/Filter/Filter';
 import { nanoid } from 'nanoid';
 
 export default class App extends Component {
@@ -11,7 +12,7 @@ export default class App extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
-    filter: 'Rosie Simpson',
+    filter: '',
   };
 
   addUser = data => {
@@ -25,6 +26,11 @@ export default class App extends Component {
     }));
   };
 
+  setFilterValue = data => {
+    console.log(data);
+    this.setState({ filter: data });
+  };
+
   handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
   };
@@ -32,12 +38,12 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <Phonebook addUser={this.addUser} />
-        <label htmlFor="">
-          filter{' '}
-          <input type="text" name="filter" onChange={this.handleChange} />
-        </label>
-        <RenderNumbers
+        {' '}
+        <h1>Phonebook</h1>
+        <ContactForm addUser={this.addUser} />
+        <h2>Contacts</h2>
+        <Filter setFilterValue={this.setFilterValue} />
+        <ContactList
           contacts={this.state.contacts}
           filter={this.state.filter}
         />

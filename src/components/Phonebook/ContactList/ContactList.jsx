@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-export class RenderNumbers extends Component {
+export class ContactList extends Component {
   render() {
     const { contacts, filter } = this.props;
     return (

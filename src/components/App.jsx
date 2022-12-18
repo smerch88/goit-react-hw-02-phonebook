@@ -15,6 +15,12 @@ export default class App extends Component {
     filter: '',
   };
 
+  deleteUser = userId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(({ id }) => id !== userId),
+    }));
+  };
+
   addUser = data => {
     const newContact = {
       ...data,
@@ -51,6 +57,7 @@ export default class App extends Component {
         <ContactList
           contacts={this.state.contacts}
           filter={this.state.filter}
+          deleteUser={this.deleteUser}
         />
       </>
     );

@@ -14,6 +14,9 @@ export class ContactList extends Component {
               <li key={contact.id}>
                 {' '}
                 {contact.name}: {contact.number}
+                <button onClick={() => this.props.deleteUser(contact.id)}>
+                  Delete
+                </button>
               </li>
             ))}
         </ul>

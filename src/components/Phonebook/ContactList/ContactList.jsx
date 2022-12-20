@@ -29,5 +29,11 @@ export class ContactList extends Component {
 ContactList.propTypes = {
   filter: PropTypes.string.isRequired,
   deleteUser: PropTypes.func.isRequired,
-  contacts: PropTypes.array.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
 };

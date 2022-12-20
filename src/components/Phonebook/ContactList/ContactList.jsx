@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class ContactList extends Component {
   render() {
@@ -24,3 +25,9 @@ export class ContactList extends Component {
     );
   }
 }
+
+ContactList.propTypes = {
+  filter: PropTypes.string.isRequired,
+  deleteUser: PropTypes.func.isRequired,
+  contacts: PropTypes.array.isRequired,
+};

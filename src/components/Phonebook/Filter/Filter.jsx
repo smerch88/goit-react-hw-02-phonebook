@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class Filter extends Component {
   state = {
@@ -12,7 +13,6 @@ export class Filter extends Component {
 
   render() {
     const { filter } = this.state;
-
     return (
       <>
         <label htmlFor="">
@@ -28,3 +28,7 @@ export class Filter extends Component {
     );
   }
 }
+
+Filter.propTypes = {
+  setFilterValue: PropTypes.func.isRequired,
+};
